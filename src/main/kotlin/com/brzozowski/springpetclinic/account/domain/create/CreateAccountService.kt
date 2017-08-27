@@ -1,13 +1,13 @@
-package com.brzozowski.springpetclinic.domain.account.create
+package com.brzozowski.springpetclinic.account.domain.create
 
-import com.brzozowski.springpetclinic.domain.account.Account
-import com.brzozowski.springpetclinic.domain.account.AccountRepository
-import com.brzozowski.springpetclinic.domain.account.create.exc.EmailAddressAlreadyInUseException
-import com.brzozowski.springpetclinic.domain.account.create.exc.EmptyCredentialsException
-import com.brzozowski.springpetclinic.domain.account.create.exc.UsernameAlreadyInUseException
-import com.brzozowski.springpetclinic.domain.account.create.exc.WrongEmailAddressPatternException
-import com.brzozowski.springpetclinic.domain.account.dto.AccountDto
-import com.brzozowski.springpetclinic.domain.account.dto.CreateAccountDto
+import com.brzozowski.springpetclinic.account.domain.Account
+import com.brzozowski.springpetclinic.account.domain.AccountRepository
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
+import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
+import com.brzozowski.springpetclinic.account.domain.dto.AccountDto
+import com.brzozowski.springpetclinic.account.domain.dto.CreateAccountDto
 import org.apache.commons.validator.routines.EmailValidator
 import org.springframework.security.crypto.password.PasswordEncoder
 import reactor.core.publisher.Mono

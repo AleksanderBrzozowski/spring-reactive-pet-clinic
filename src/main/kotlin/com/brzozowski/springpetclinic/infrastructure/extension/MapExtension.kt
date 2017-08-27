@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.extension
+package com.brzozowski.springpetclinic.infrastructure.extension
 
 import java.lang.IllegalArgumentException
 

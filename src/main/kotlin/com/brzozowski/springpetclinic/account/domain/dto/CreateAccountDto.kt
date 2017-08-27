@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.domain.account.dto
+package com.brzozowski.springpetclinic.account.domain.dto
 
 /**
  * @author Aleksander Brzozowski

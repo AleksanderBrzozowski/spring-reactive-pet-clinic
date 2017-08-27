@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.system.presentation
+package com.brzozowski.springpetclinic.infrastructure.presentation
 
 /**
  * @author Aleksander Brzozowski

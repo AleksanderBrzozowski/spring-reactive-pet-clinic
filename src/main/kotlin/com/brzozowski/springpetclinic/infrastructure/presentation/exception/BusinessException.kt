@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.infrastructure.exception
+package com.brzozowski.springpetclinic.infrastructure.presentation.exception
 
 /**
  * @author Aleksander Brzozowski

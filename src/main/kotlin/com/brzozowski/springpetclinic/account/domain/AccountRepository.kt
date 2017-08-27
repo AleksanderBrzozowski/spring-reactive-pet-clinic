@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.domain.account
+package com.brzozowski.springpetclinic.account.domain
 
 import reactor.core.publisher.Mono
 

@@ -1,6 +1,6 @@
-package com.brzozowski.springpetclinic.domain.account.create.exc
+package com.brzozowski.springpetclinic.account.domain.create.exc
 
-import com.brzozowski.springpetclinic.system.exception.BusinessException
+import com.brzozowski.springpetclinic.infrastructure.presentation.exception.BusinessException
 
 /**
  * @author Aleksander Brzozowski

@@ -1,9 +1,13 @@
-package com.brzozowski.springpetclinic.domain.account
+package com.brzozowski.springpetclinic.account.domain
 
-import com.brzozowski.springpetclinic.domain.account.create.exc.EmailAddressAlreadyInUseException
-import com.brzozowski.springpetclinic.domain.account.create.exc.EmptyCredentialsException
-import com.brzozowski.springpetclinic.domain.account.create.exc.UsernameAlreadyInUseException
-import com.brzozowski.springpetclinic.domain.account.create.exc.WrongEmailAddressPatternException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
+import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
+import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import spock.lang.Specification

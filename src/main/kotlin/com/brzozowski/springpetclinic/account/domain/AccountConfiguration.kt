@@ -1,6 +1,6 @@
-package com.brzozowski.springpetclinic.domain.account
+package com.brzozowski.springpetclinic.account.domain
 
-import com.brzozowski.springpetclinic.domain.account.create.CreateAccountService
+import com.brzozowski.springpetclinic.account.domain.create.CreateAccountService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder

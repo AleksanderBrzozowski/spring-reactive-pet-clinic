@@ -1,6 +1,6 @@
-package com.brzozowski.springpetclinic.domain.account
+package com.brzozowski.springpetclinic.account.domain
 
-import com.brzozowski.springpetclinic.extension.findByValue
+import com.brzozowski.springpetclinic.infrastructure.extension.findByValue
 import reactor.core.publisher.Mono
 import reactor.core.publisher.toMono
 import java.util.concurrent.ConcurrentHashMap

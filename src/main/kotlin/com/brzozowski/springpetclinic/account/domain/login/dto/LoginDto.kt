@@ -3,5 +3,4 @@ package com.brzozowski.springpetclinic.account.domain.login.dto
 /**
  * @author Aleksander Brzozowski
  */
-class LoginDto {
-}
+class LoginDto(val username: String, val password: String)
