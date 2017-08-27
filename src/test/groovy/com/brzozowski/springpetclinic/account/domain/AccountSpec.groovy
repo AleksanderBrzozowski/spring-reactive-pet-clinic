@@ -1,11 +1,7 @@
 package com.brzozowski.springpetclinic.account.domain
 
-import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
-import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
-import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
 import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
-import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
