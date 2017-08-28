@@ -23,7 +23,7 @@ class CreateAccountService(private val accountRepository: AccountRepository,
     fun createAccount(createAccountDto: CreateAccountDto): Mono<AccountDto> {
         return Mono.fromCallable {
             checkCredentialsNotEmpty(createAccountDto)
-            checkEmailAddress(createAccountDto.email)
+            checkEmailAddressPattern(createAccountDto.email)
         }
                 .flatMap { accountRepository.findByEmail(createAccountDto.email) }
                 .errorIfNotEmpty { EmailAddressAlreadyInUseException() }
@@ -43,7 +43,7 @@ class CreateAccountService(private val accountRepository: AccountRepository,
         }
     }
 
-    private fun checkEmailAddress(email: String) {
+    private fun checkEmailAddressPattern(email: String) {
         if (!EmailValidator.getInstance().isValid(email)) {
             throw WrongEmailAddressPatternException()
         }
