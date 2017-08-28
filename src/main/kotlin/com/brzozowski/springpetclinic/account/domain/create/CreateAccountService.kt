@@ -8,6 +8,8 @@ import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyI
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.dto.AccountDto
 import com.brzozowski.springpetclinic.account.domain.dto.CreateAccountDto
+import com.brzozowski.springpetclinic.infrastructure.extension.errorIfNotEmpty
+import com.brzozowski.springpetclinic.infrastructure.extension.switchIfEmpty
 import org.apache.commons.validator.routines.EmailValidator
 import org.springframework.security.crypto.password.PasswordEncoder
 import reactor.core.publisher.Mono
@@ -23,14 +25,11 @@ class CreateAccountService(private val accountRepository: AccountRepository,
             checkCredentialsNotEmpty(createAccountDto)
             checkEmailAddress(createAccountDto.email)
         }
-                .flatMap {
-                    accountRepository.findByEmail(createAccountDto.email)
-                            .flatMap { Mono.error<Account>(EmailAddressAlreadyInUseException()) }
-                }
-                .switchIfEmpty(accountRepository.findByUsername(createAccountDto.username)
-                        .flatMap { Mono.error<Account>(UsernameAlreadyInUseException()) }
-                )
-                .switchIfEmpty(accountRepository.save(accountFrom(createAccountDto)))
+                .flatMap { accountRepository.findByEmail(createAccountDto.email) }
+                .errorIfNotEmpty { EmailAddressAlreadyInUseException() }
+                .switchIfEmpty { accountRepository.findByUsername(createAccountDto.username) }
+                .errorIfNotEmpty { UsernameAlreadyInUseException() }
+                .switchIfEmpty { accountRepository.save(accountFrom(createAccountDto)) }
                 .map { it.toDto() }
     }
 

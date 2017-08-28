@@ -24,7 +24,4 @@ class AccountController(private val accountFacade: AccountFacade) {
         return accountFacade.createAccount(createAccountDto)
                 .map { ResponseEntity<Void>(HttpStatus.CREATED) }
     }
-
-    @PostMapping("/login")
-    fun loginAccount(@)
 }

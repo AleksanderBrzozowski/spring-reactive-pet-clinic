@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.account.domain
+package com.brzozowski.springpetclinic.account.domain.create
 
 import com.brzozowski.springpetclinic.account.domain.dto.CreateAccountDto
 
