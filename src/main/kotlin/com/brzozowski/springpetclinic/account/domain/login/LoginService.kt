@@ -5,7 +5,7 @@ import com.brzozowski.springpetclinic.account.domain.login.dto.LoginDto
 import com.brzozowski.springpetclinic.account.domain.login.exc.WrongCredentialsException
 import com.brzozowski.springpetclinic.infrastructure.extension.errorIfEmpty
 import com.brzozowski.springpetclinic.infrastructure.extension.errorIfNot
-import com.brzozowski.springpetclinic.infrastructure.token.TokenService
+import com.brzozowski.springpetclinic.infrastructure.security.token.TokenService
 import org.springframework.security.crypto.password.PasswordEncoder
 import reactor.core.publisher.Mono
 

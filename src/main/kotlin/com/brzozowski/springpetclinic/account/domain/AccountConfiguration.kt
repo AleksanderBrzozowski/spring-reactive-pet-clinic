@@ -2,7 +2,7 @@ package com.brzozowski.springpetclinic.account.domain
 
 import com.brzozowski.springpetclinic.account.domain.create.CreateAccountService
 import com.brzozowski.springpetclinic.account.domain.login.LoginService
-import com.brzozowski.springpetclinic.infrastructure.token.TokenService
+import com.brzozowski.springpetclinic.infrastructure.security.token.TokenService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder

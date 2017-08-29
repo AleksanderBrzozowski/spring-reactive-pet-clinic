@@ -7,8 +7,8 @@ import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyI
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.login.LoginSampleDataKt
 import com.brzozowski.springpetclinic.account.domain.login.exc.WrongCredentialsException
-import com.brzozowski.springpetclinic.infrastructure.token.TokenConfiguration
-import com.brzozowski.springpetclinic.infrastructure.token.TokenService
+import com.brzozowski.springpetclinic.infrastructure.security.token.TokenConfiguration
+import com.brzozowski.springpetclinic.infrastructure.security.token.TokenService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import spock.lang.Specification

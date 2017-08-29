@@ -1,4 +1,4 @@
-package com.brzozowski.springpetclinic.infrastructure.token
+package com.brzozowski.springpetclinic.infrastructure.security.token
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -17,13 +17,5 @@ class TokenService(private val jwtSecretKey: String) {
                 .setClaims(mapOf(USERNAME to username))
                 .signWith(SignatureAlgorithm.HS512, jwtSecretKey)
                 .compact()
-    }
-
-    fun getAuthentication(token: String): Authentication {
-        val claims = Jwts.parser()
-                .setSigningKey(jwtSecretKey)
-                .parseClaimsJws(token)
-                .body
-        return Authentication(claims[USERNAME].toString())
     }
 }
