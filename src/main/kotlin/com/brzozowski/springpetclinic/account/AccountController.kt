@@ -1,7 +1,7 @@
 package com.brzozowski.springpetclinic.account
 
 import com.brzozowski.springpetclinic.account.domain.AccountFacade
-import com.brzozowski.springpetclinic.account.domain.dto.CreateAccountDto
+import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 import com.brzozowski.springpetclinic.infrastructure.presentation.Api
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

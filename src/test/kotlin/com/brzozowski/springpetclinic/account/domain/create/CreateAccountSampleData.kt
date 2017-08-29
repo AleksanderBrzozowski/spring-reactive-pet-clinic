@@ -1,6 +1,6 @@
 package com.brzozowski.springpetclinic.account.domain.create
 
-import com.brzozowski.springpetclinic.account.domain.dto.CreateAccountDto
+import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 
 /**
  * @author Aleksander Brzozowski
