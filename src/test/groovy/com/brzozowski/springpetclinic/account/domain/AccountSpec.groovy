@@ -7,34 +7,23 @@ import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyI
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.login.LoginSampleDataKt
 import com.brzozowski.springpetclinic.account.domain.login.exc.WrongCredentialsException
-import com.brzozowski.springpetclinic.infrastructure.security.token.TokenConfiguration
-import com.brzozowski.springpetclinic.infrastructure.security.token.TokenService
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.security.crypto.password.PasswordEncoder
 import spock.lang.Specification
 import spock.lang.Unroll
-
 /**
  * @author Aleksander Brzozowski
  */
 
 class AccountSpec extends Specification {
     
-    AccountRepository accountRepository = new InMemoryAccountRepository()
-    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder()
-    TokenService tokenService = new TokenConfiguration().tokenService("secret")
-    AccountFacade accountFacade = new AccountConfiguration()
-            .accountFacade(accountRepository, passwordEncoder, tokenService)
+    AccountFacade accountFacade = new AccountConfiguration().accountFacade()
     
     def "it should add account when credentials are correct"() {
         given: "correct account credentials"
-            def createAccountCredentials = CreateAccountSampleDataKt.correct()
+            def credentials = CreateAccountSampleDataKt.correct()
         when: "create account"
-            def createdAccount = accountFacade.createAccount(createAccountCredentials).block()
+            def createdAccount = accountFacade.createAccount(credentials).block()
         then: "app has this account"
-            def foundAccount = accountRepository.findById(createdAccount.id).block()
-        then: "password is matching"
-            passwordEncoder.matches(createAccountCredentials.password, foundAccount.password)
+            accountFacade.findById(createdAccount.id).block() == createdAccount
     }
     
     def "it should not add account when e-mail is already in use"() {

@@ -3,7 +3,7 @@ package com.brzozowski.springpetclinic.account.domain.dto
 /**
  * @author Aleksander Brzozowski
  */
-class AccountDto(
+data class AccountDto(
         val id: String,
         val firstName: String,
         val lastName: String,
