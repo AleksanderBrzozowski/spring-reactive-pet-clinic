@@ -20,4 +20,11 @@ class WebExceptionHandler(private val messageSource: MessageSource) {
         val apiError = ApiError(message = message, type = ExceptionType.BUSINESS)
         return ResponseEntity(apiError, HttpStatus.BAD_REQUEST)
     }
+
+    @ExceptionHandler
+    fun systemException(exc: SystemException): ResponseEntity<ApiError> {
+        val message = messageSource.getDefaultMessage("system.error")
+        val apiError = ApiError(message = message, type = ExceptionType.SYSTEM)
+        return ResponseEntity(apiError, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
 }
