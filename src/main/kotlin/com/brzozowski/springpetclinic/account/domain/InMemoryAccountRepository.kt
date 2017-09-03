@@ -16,8 +16,8 @@ class InMemoryAccountRepository : AccountRepository {
         return map.reactivePutAndGetActual(account.id, account)
     }
 
-    override fun findByEmail(email: String): Mono<Account> {
-        return map.reactiveFindByValue { it.email == email }
+    override fun findByEmailStartsWithIgnoreCase(emailUsername: String): Mono<Account> {
+        return map.reactiveFindByValue { it.email.startsWith(emailUsername, ignoreCase = true) }
     }
 
     override fun findByUsername(username: String): Mono<Account> {

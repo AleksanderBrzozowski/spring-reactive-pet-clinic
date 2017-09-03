@@ -35,6 +35,15 @@ class AccountSpec extends Specification {
             thrown(EmailAddressAlreadyInUseException)
     }
     
+    def "it should not add account when e-mail address username ignore case is already in use"() {
+        given: "created account"
+            accountFacade.createAccount(CreateAccountSampleDataKt.correct()).block()
+        when: "create account with same username, one letter capitalized"
+            accountFacade.createAccount(CreateAccountSampleDataKt.sameEmailAddressUsernameOtherCase()).block()
+        then:
+            thrown(EmailAddressAlreadyInUseException)
+    }
+    
     def "it should not add account when username is already in use"() {
         given: "credentials with already created account"
             accountFacade.createAccount(CreateAccountSampleDataKt.correct()).block()

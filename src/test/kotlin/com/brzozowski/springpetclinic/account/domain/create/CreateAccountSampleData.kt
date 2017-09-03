@@ -11,6 +11,7 @@ fun correct() = CreateAccountDto(firstName = "Jan", lastName = "Kowalski", usern
 
 fun wrongEmailAddressPattern() = correct().copy(email = "jankowalski@gmail")
 fun sameEmailAddress() = correct().copy(username = "jankow2")
+fun sameEmailAddressUsernameOtherCase() = correct().copy(email = "janKowalski@gmail.com", username = "jankow2")
 fun sameUsername() = correct().copy(email = "jankowalski2@gmail.com")
 
 fun emptyFirstName() = correct().copy(firstName = "")

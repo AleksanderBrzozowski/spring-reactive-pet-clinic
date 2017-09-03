@@ -2,12 +2,12 @@ package com.brzozowski.springpetclinic.account.domain.create
 
 import com.brzozowski.springpetclinic.account.domain.Account
 import com.brzozowski.springpetclinic.account.domain.AccountRepository
+import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
 import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.dto.AccountDto
-import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 import com.brzozowski.springpetclinic.infrastructure.extension.errorIfNotEmpty
 import com.brzozowski.springpetclinic.infrastructure.extension.switchIfEmpty
 import org.apache.commons.validator.routines.EmailValidator
@@ -25,7 +25,7 @@ class CreateAccountService(private val accountRepository: AccountRepository,
             checkCredentialsNotEmpty(createAccountDto)
             checkEmailAddressPattern(createAccountDto.email)
         }
-                .flatMap { accountRepository.findByEmail(createAccountDto.email) }
+                .flatMap { accountRepository.findByEmailStartsWithIgnoreCase(createAccountDto.email) }
                 .errorIfNotEmpty { EmailAddressAlreadyInUseException() }
                 .switchIfEmpty { accountRepository.findByUsername(createAccountDto.username) }
                 .errorIfNotEmpty { UsernameAlreadyInUseException() }
