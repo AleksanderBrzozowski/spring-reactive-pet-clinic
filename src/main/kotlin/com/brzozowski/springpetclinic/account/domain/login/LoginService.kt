@@ -21,6 +21,6 @@ class LoginService(private val accountRepository: AccountRepository,
                 .errorIfEmpty { WrongCredentialsException() }
                 .errorIfNot(predicate = { passwordEncoder.matches(loginDto.password, it.password) },
                         throwable = { WrongCredentialsException() })
-                .map { tokenService.generateToken(it.username) }
+                .map { tokenService.generateToken(it.id) }
     }
 }
