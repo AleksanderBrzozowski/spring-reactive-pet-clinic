@@ -13,4 +13,6 @@ class TokenConfiguration {
 
     @Bean
     fun tokenService(@Value("\${jwt.secretKey}") jwtSecretKey: String) = TokenService(jwtSecretKey)
+
+    fun tokenService() = TokenService("secret")
 }

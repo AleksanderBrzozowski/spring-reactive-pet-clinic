@@ -19,7 +19,7 @@ class AccountConfiguration {
     fun accountFacade(): AccountFacade {
         val accountRepository = InMemoryAccountRepository()
         val passwordEncoder = BCryptPasswordEncoder()
-        val tokenService = TokenConfiguration().tokenService("secret")
+        val tokenService = TokenConfiguration().tokenService()
 
         return createAccountFacade(
                 accountRepository = accountRepository,
