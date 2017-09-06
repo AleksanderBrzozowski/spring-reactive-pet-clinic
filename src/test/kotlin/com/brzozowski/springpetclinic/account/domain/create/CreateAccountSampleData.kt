@@ -8,6 +8,7 @@ import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 
 fun correct() = CreateAccountDto(firstName = "Jan", lastName = "Kowalski", username = "jankow",
         password = "pass", email = "jankowalski@gmail.com")
+fun otherCorrect() = correct().copy(email = "jankowalski2@gmail.com", username = "jankow2")
 
 fun wrongEmailAddressPattern() = correct().copy(email = "jankowalski@gmail")
 fun sameEmailAddress() = correct().copy(username = "jankow2")

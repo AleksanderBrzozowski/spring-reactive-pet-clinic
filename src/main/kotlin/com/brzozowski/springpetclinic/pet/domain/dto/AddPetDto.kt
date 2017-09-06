@@ -7,6 +7,5 @@ import com.brzozowski.springpetclinic.pet.domain.Pet
  */
 data class AddPetDto(
         val name: String,
-        val type: Pet.Type,
-        val ownerId: String
+        val type: Pet.Type
 )

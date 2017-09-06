@@ -35,4 +35,11 @@ class WebExceptionHandler(private val messageSource: MessageSource) {
         val apiError = ApiError(message = message, type = ExceptionType.SECURITY)
         return ResponseEntity(apiError, HttpStatus.UNAUTHORIZED)
     }
+
+    @ExceptionHandler
+    fun accessDeniedException(exc: AccesDeniedException): ResponseEntity<ApiError> {
+        val message = messageSource.getDefaultMessage("system.accessDenied.error")
+        val apiError = ApiError(message = message, type = ExceptionType.SECURITY)
+        return ResponseEntity(apiError, HttpStatus.UNAUTHORIZED)
+    }
 }
