@@ -2,7 +2,7 @@ package com.brzozowski.springpetclinic.account.domain
 
 import com.brzozowski.springpetclinic.account.domain.create.CreateAccountSampleDataKt
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
-import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyAccountCredentialsException
 import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.login.LoginSampleDataKt
@@ -59,7 +59,7 @@ class AccountSpec extends Specification {
         when:
             accountFacade.createAccount(credentials).block()
         then:
-            thrown(EmptyCredentialsException)
+            thrown(EmptyAccountCredentialsException)
         where:
             property    | credentials
             "firstName" | CreateAccountSampleDataKt.emptyFirstName()

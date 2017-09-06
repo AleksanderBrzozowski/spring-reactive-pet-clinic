@@ -5,4 +5,4 @@ import com.brzozowski.springpetclinic.infrastructure.presentation.exception.Busi
 /**
  * @author Aleksander Brzozowski
  */
-class EmptyCredentialsException: BusinessException("domain.account.error.emptyCredentials")
+class EmptyAccountCredentialsException : BusinessException("domain.account.error.emptyCredentials")

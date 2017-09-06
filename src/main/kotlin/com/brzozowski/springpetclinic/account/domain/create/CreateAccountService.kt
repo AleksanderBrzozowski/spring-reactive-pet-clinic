@@ -4,7 +4,7 @@ import com.brzozowski.springpetclinic.account.domain.Account
 import com.brzozowski.springpetclinic.account.domain.AccountRepository
 import com.brzozowski.springpetclinic.account.domain.create.dto.CreateAccountDto
 import com.brzozowski.springpetclinic.account.domain.create.exc.EmailAddressAlreadyInUseException
-import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyCredentialsException
+import com.brzozowski.springpetclinic.account.domain.create.exc.EmptyAccountCredentialsException
 import com.brzozowski.springpetclinic.account.domain.create.exc.UsernameAlreadyInUseException
 import com.brzozowski.springpetclinic.account.domain.create.exc.WrongEmailAddressPatternException
 import com.brzozowski.springpetclinic.account.domain.dto.AccountDto
@@ -39,7 +39,7 @@ class CreateAccountService(private val accountRepository: AccountRepository,
                 .map { it.isNotBlank() }
                 .all { it }
         if (!allCredentialsFilled) {
-            throw EmptyCredentialsException()
+            throw EmptyAccountCredentialsException()
         }
     }
 
